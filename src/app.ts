@@ -73,6 +73,6 @@ mongoose.connect(
 
 app.use("/", router)
 
-app.listen(9876, () => {
+app.listen(process.env.PORT || 9876, () => {
     console.log("Sever is rocking at 9876");
 })
