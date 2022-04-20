@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_application/provider/todo_provider.dart';
@@ -49,6 +51,12 @@ class _HomeViewState extends State<HomeView> {
               itemCount: model.todoData?.length,
               itemBuilder: (context, int index) {
                 return ListTile(
+                  onTap: (() {
+                    // print(model.todoData![index]["_id"]);
+                    model.deleteData(model.todoData![index]["_id"]);
+                    ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text("Deleted Successfully")));
+                  }),
                   title: Text(model.todoData![index]["title"]),
                   subtitle: Text(model.todoData![index]["description"]),
                 );
