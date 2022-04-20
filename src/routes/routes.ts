@@ -82,7 +82,7 @@ router.delete("/delete", async (req: Request, res: Response) => {
 //Method For Update Request Method For Update Request Method For Update Request
 router.put("/update", async (req: Request, res: Response) => {
     const filter = {
-        id: req.body.id,
+        _id: req.body.id,
     }
 
     const updatedData = {
